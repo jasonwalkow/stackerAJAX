@@ -5,14 +5,22 @@ $(document).ready( function() {
 		// get the value of the tags the user submitted
 		var tags = $(this).find("input[name='tags']").val();
 		getUnanswered(tags);
+		// scroll to results
+		$(".container").animate({
+         scrollTop: $("#results").offset().top
+    	}, 1000);
 	});
+
 	$('.inspiration-getter').submit( function(event){
-		console.log("inspired");
 		// zero out results if previous search has run
 		$('.results').html('');
 		// get the value of the tags the user submitted
 		var answerers = $(this).find("input[name='answerers']").val();
 		getInspiration(answerers);
+		// scroll to results
+		$(".container").animate({
+         scrollTop: $("#results").offset().top
+    		}, 1000);
 	});
 });
 
@@ -157,6 +165,8 @@ var getInspiration = function(answerers) {
 		$('.search-results').append(errorElem);
 	});
 };
+
+
 
 
 
